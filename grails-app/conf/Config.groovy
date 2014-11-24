@@ -103,9 +103,9 @@ environments {
 log4j = {
     // Example of changing the log pattern for the default console appender:
     //
-    //appenders {
-    //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
-    //}
+    appenders {
+        console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
+    }
 
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP
@@ -118,4 +118,25 @@ log4j = {
            'org.springframework',
            'org.hibernate',
            'net.sf.ehcache.hibernate'
+
+    debug 'com.hida'
 }
+
+//<role rolename="manager"/>
+//<user username="manager" password="secret" roles="standard,manager"/>
+//<user username="manager" password="secret" roles="manager-script" />
+tomcat.deploy.username= System.getProperty("tomcat.deploy.username") ?: "manager"
+tomcat.deploy.password= System.getProperty("tomcat.deploy.password") ?: "secret"
+tomcat.deploy.url= System.getProperty("tomcat.deploy.url") ?: "http://localhost:8080/manager/text"
+
+
+grails.gorm.default.mapping = {
+    "user-type" type: org.jadira.usertype.dateandtime.joda.PersistentLocalDate, class: org.joda.time.LocalDate
+    "user-type" type: org.jadira.usertype.dateandtime.joda.PersistentLocalTimeAsString, class: org.joda.time.LocalTime
+    "user-type" type: org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime, class: org.joda.time.LocalDateTime
+}
+
+
+jodatime.format.org.joda.time.LocalDate = "yyyy-MM-dd"
+jodatime.format.org.joda.time.LocalDateTime = "yyyy-MM-dd HH:mm"
+grails.databinding.useSpringBinder = true
