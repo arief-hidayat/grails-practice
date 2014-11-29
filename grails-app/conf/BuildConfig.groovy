@@ -21,6 +21,9 @@ grails.project.fork = [
     console: [maxMemory: 768, minMemory: 64, debug: false, maxPerm: 256]
 ]
 
+
+grails.plugin.location.'hida-ui-scaffold' = '../hida-ui-scaffold'
+
 grails.project.dependency.resolver = "maven" // or ivy
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
@@ -52,6 +55,8 @@ grails.project.dependency.resolution = {
         runtime 'org.postgresql:postgresql:9.3-1102-jdbc41'
         test "org.grails:grails-datastore-test-support:1.0-grails-2.3"
     }
+
+
 
     plugins {
         // plugins for the build system only
