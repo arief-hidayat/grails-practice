@@ -14,6 +14,6 @@ class EmployeeType {
     LocalDateTime lastModifiedAt = LocalDateTime.now()
 
     static constraints = {
-
+        code matches: "[A-Z0-9_]+"
     }
 }
