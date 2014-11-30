@@ -15,5 +15,6 @@ class EmployeeType {
     static constraints = {
         code matches: "[A-Z0-9_]+", unique: true
         description nullable: true
+        status inList: ["ACTIVE", "INACTIVE"]
     }
 }
