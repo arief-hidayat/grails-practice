@@ -21,6 +21,8 @@ grails.project.fork = [
         console: [maxMemory: 1024, minMemory: 256, debug: false, maxPerm: 256]
 ]
 
+grails.plugin.location.'hida-ui-scaffold' = '../hida-ui-scaffold'
+
 grails.project.dependency.resolver = "maven" // or ivy
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
