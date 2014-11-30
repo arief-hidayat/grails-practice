@@ -1,6 +1,5 @@
 package com.hida.hr
 
-import org.joda.time.LocalDate
 import org.joda.time.LocalDateTime
 
 class EmployeeType {
@@ -15,5 +14,6 @@ class EmployeeType {
 
     static constraints = {
         code matches: "[A-Z0-9_]+", unique: true
+        description nullable: true
     }
 }
