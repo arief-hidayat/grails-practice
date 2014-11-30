@@ -33,6 +33,15 @@ class EmployeeTypeSpec extends Specification {
 
     void "code should be unique"() {
 
+        given : "employee type ABC is exist in the database"
+        EmployeeType typeABC = new EmployeeType(code: "ABC", description: "ABC is valid code", status: "ACTIVE", lastModifiedBy: "me")
+        typeABC.save(failOnError: true, flush: true)
+        typeABC.id
+        when: "we tried to create another record with the same code"
+        EmployeeType type = new EmployeeType(code: "ABC", description: "other new record with same code", status: "ACTIVE", lastModifiedBy: "me")
+        then: "system won't allow it to be saved"
+        shouldFail { type.save(failOnError: true)}
+
     }
     void "description can be null"() {
 
