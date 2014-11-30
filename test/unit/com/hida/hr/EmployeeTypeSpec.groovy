@@ -15,6 +15,16 @@ class EmployeeTypeSpec extends Specification {
     def cleanup() {
     }
 
-    void "test something"() {
+    void "code should be alpha numeric or underscore"() {
+    }
+
+    void "code should be unique"() {
+
+    }
+    void "description can be null"() {
+
+    }
+    void "status must be either ACTIVE or INACTIVE"() {
+
     }
 }

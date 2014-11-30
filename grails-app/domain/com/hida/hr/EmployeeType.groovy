@@ -7,12 +7,13 @@ class EmployeeType {
 
     String code
     String description
-    
+
     String status
 
     String lastModifiedBy
     LocalDateTime lastModifiedAt = LocalDateTime.now()
 
     static constraints = {
+
     }
 }
