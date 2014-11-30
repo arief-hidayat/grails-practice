@@ -44,6 +44,12 @@ class EmployeeTypeSpec extends Specification {
 
     }
     void "description can be null"() {
+        given: "a new employee type record with no description"
+        EmployeeType typeABC = new EmployeeType(code: "ABC", status: "ACTIVE", lastModifiedBy: "me")
+        when: "it's saved into database"
+        typeABC.save(failOnError: true)
+        then: "it can be saved successfully"
+        typeABC.id
 
     }
     void "status must be either ACTIVE or INACTIVE"() {
