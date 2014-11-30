@@ -53,6 +53,23 @@ class EmployeeTypeSpec extends Specification {
 
     }
     void "status must be either ACTIVE or INACTIVE"() {
+        given: "a new employee type with invalid status"
+        EmployeeType type = new EmployeeType(code: "ABC", status: "INVALID STATUS HERE", lastModifiedBy: "me")
+        when: "status is invalid (neither ACTIVE nor INACTIVE)"
+        type.status = "INVALID STATUS HERE"
+        then: "system won't allow it to be saved"
+        shouldFail { type.save(failOnError: true)}
+
+        when: "status is set to ACTIVE"
+        type.status = "ACTIVE"
+        then: "it should be saved successfully"
+        type.save(failOnError: true)
+
+
+        when: "status is changed to INACTIVE"
+        type.status = "INACTIVE"
+        then: "it should be saved successfully"
+        type.save(failOnError: true)
 
     }
 }
