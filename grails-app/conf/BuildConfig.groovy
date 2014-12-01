@@ -21,6 +21,8 @@ grails.project.fork = [
         console: [maxMemory: 1024, minMemory: 256, debug: false, maxPerm: 256]
 ]
 
+grails.plugin.location.'hida-ui-scaffold' = '../hida-ui-scaffold'
+
 grails.project.dependency.resolver = "maven" // or ivy
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
@@ -41,9 +43,9 @@ grails.project.dependency.resolution = {
         grailsCentral()
         mavenCentral()
         // uncomment these (or add new ones) to enable remote dependency resolution from public Maven repositories
-        //mavenRepo "http://repository.codehaus.org"
-        //mavenRepo "http://download.java.net/maven/2/"
-        //mavenRepo "http://repository.jboss.com/maven2/"
+        // mavenRepo "http://repository.codehaus.org"
+        // mavenRepo "http://download.java.net/maven/2/"
+        // mavenRepo "http://repository.jboss.com/maven2/"
 
         mavenRepo "http://jcenter.bintray.com"
     }
@@ -71,7 +73,7 @@ grails.project.dependency.resolution = {
         compile ':cache:1.1.7'
 
         // plugins needed at runtime but not for compilation
-        runtime ":hibernate:3.6.10.18" // or ":hibernate4:4.3.5.4"
+        runtime ":hibernate:3.6.10.16" // or ":hibernate4:4.3.5.4"
         runtime ":database-migration:1.4.0"
         runtime ":jquery:1.11.1"
 
