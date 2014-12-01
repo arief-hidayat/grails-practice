@@ -24,6 +24,8 @@ environments {
         }
         hibernate {
             jdbc.factory_class = 'net.bull.javamelody.HibernateBatcherFactory'
+			format_sql = System.getProperty("sql.debug") ? true : false
+			use_sql_comments = System.getProperty("sql.debug") ? true : false
         }
     }
     test {

@@ -104,7 +104,7 @@ log4j = {
     // Example of changing the log pattern for the default console appender:
     //
     appenders {
-        console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
+        console name:'stdout', layout:pattern(conversionPattern: '[%t][%c{2}]: %m%n')
     }
 
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
@@ -120,6 +120,11 @@ log4j = {
            'net.sf.ehcache.hibernate'
 
     debug 'com.hida'
+	
+	if(System.getProperty("sql.debug")) {
+		debug 'org.hibernate.SQL'	
+		trace 'org.hibernate.type.descriptor.sql.BasicBinder'
+	}
 }
 
 //<role rolename="manager"/>
